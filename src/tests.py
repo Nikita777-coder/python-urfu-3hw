@@ -1,7 +1,7 @@
 import unittest
-# src/tests.py
 import sys
 import os
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 import app as tested_app
@@ -14,6 +14,7 @@ class FlaskAppTests(unittest.TestCase):
         self.app = tested_app.app.test_client()
 
     def test_get_hello_endpoint(self):
+        print(sys.path)
         r = self.app.get('/')
         self.assertEqual(r.data, b'Hello World!')
 
@@ -63,6 +64,8 @@ class FlaskAppTests(unittest.TestCase):
         r = self.app.get('/add?a=2&b=3')
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.data, b'5.0')
+
+
 ##
 ###
 if __name__ == '__main__':
