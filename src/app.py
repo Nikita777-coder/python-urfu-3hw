@@ -28,15 +28,6 @@ def add():
 
 @app.route('/api', methods=['GET', 'POST'])
 def api():
-    """
-    /api entpoint
-    GET - returns json= {'status': 'test'}
-    POST -  {
-            name - str not null
-            age - int optional
-            }
-    :return:
-    """
     if request.method == 'GET':
         return jsonify({'status': 'test'})
     elif request.method == 'POST':
